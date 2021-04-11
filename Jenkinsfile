@@ -8,7 +8,6 @@ pipeline {
              steps {
                  //sh "returnStatus: true, script: 'terraform workspace new dev'"
                  sh "terraform init"
-                 
          }
          }
          stage('terraform plan'){
@@ -32,12 +31,9 @@ pipeline {
                  sh "terraform apply  -input=false tfplan"
              }
          }
-
-          
     }
 }
  def getTerraformPath(){
         def tfHome= tool name: 'terraform-14', type: 'terraform'
         return tfHome
     }
-
